@@ -1,59 +1,22 @@
-// Hossam & Hadeer Wedding Invitation
+document.getElementById("confirmAttendance")
+  .addEventListener("click", function () {
 
-// فتح الدعوة
-const openButton = document.querySelector("#openInvitation");
-const invitation = document.querySelector("#invitation");
+    const name = document.getElementById("guestName").value.trim();
+    const count = document.getElementById("guestCount").value;
 
-if (openButton && invitation) {
-  openButton.addEventListener("click", () => {
-    invitation.classList.add("is-open");
-    openButton.textContent = "Welcome ❤️";
-  });
-}
-
-// تشغيل وإيقاف الموسيقى
-const musicButton = document.querySelector("#musicButton");
-const weddingMusic = document.querySelector("#weddingMusic");
-
-if (musicButton && weddingMusic) {
-  musicButton.addEventListener("click", async () => {
-    if (weddingMusic.paused) {
-      try {
-        await weddingMusic.play();
-        musicButton.textContent = "Ⅱ Pause Music";
-      } catch (error) {
-        musicButton.textContent = "Try Again";
-      }
-    } else {
-      weddingMusic.pause();
-      musicButton.textContent = "♫ Play Music";
-    }
-  });
-}
-
-// العداد التنازلي
-const countdown = document.querySelector("#countdown");
-const weddingDate = document.body.dataset.weddingDate;
-
-if (countdown && weddingDate) {
-  const target = new Date(weddingDate).getTime();
-
-  function updateCountdown() {
-    const difference = target - Date.now();
-
-    if (difference <= 0) {
-      countdown.textContent = "The Big Day Is Here ❤️";
+    if (!name || !count || Number(count) < 1) {
+      alert("Please enter your name and number of guests.");
       return;
     }
 
-    const days = Math.floor(difference / 86400000);
-    const hours = Math.floor((difference % 86400000) / 3600000);
-    const minutes = Math.floor((difference % 3600000) / 60000);
+    const message =
+      `Hello! I would like to confirm my attendance at Hossam & Hadeer's wedding.\n` +
+      `Name: ${name}\n` +
+      `Number of guests: ${count}`;
 
-    countdown.textContent =
-      `${days} Days | ${hours} Hours | ${minutes} Minutes`;
-  }
+    const whatsappURL =
+      "https://wa.me/201007302746?text=" +
+      encodeURIComponent(message);
 
-  updateCountdown();
-  setInterval(updateCountdown, 60000);
-}
+    window.open(whatsappURL, "_blank");
+  });
