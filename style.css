@@ -1,0 +1,108 @@
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:wght@400;500;600&display=swap');
+
+:root {
+  --cream: #f8f1e7;
+  --beige: #e9dcc8;
+  --gold: #b39461;
+  --dark-gold: #8d7047;
+  --burgundy: #762e37;
+  --white: #fffdf8;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--cream);
+  color: var(--dark-gold);
+  font-family: 'Cormorant Garamond', serif;
+  text-align: center;
+}
+
+.invitation {
+  min-height: 100vh;
+  padding: 45px 20px;
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse at top, #fffdf9, transparent 65%),
+    var(--cream);
+}
+
+.card {
+  max-width: 650px;
+  margin: auto;
+  padding: 55px 25px;
+  background: rgba(255, 253, 248, 0.9);
+  border: 1px solid var(--gold);
+  outline: 1px solid #d8c5a5;
+  outline-offset: 7px;
+  position: relative;
+  animation: appear 2s ease;
+}
+
+h1 {
+  font-family: 'Great Vibes', cursive;
+  font-size: clamp(48px, 10vw, 78px);
+  color: var(--gold);
+  font-weight: 400;
+  margin: 25px 0;
+}
+
+.subtitle {
+  letter-spacing: 4px;
+  font-size: 13px;
+  color: var(--dark-gold);
+}
+
+.ornament {
+  font-size: 30px;
+  color: var(--gold);
+  margin: 20px;
+}
+
+.names {
+  line-height: 1.5;
+}
+
+.rose {
+  color: var(--burgundy);
+  font-size: 28px;
+  margin: 15px;
+}
+
+.details {
+  margin-top: 35px;
+  line-height: 2;
+  font-size: 20px;
+}
+
+.details p {
+  margin: 10px;
+}
+
+.lace {
+  border: 2px dotted #d8c5a5;
+  padding: 20px;
+  margin: 20px 0;
+}
+
+@keyframes appear {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 480px) {
+  .card {
+    padding: 35px 15px;
+  }
+}
